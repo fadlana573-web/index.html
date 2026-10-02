@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Selamat Ulang Tahun Selvi Bedul</title>
+  <style>
+    :root {
+      --bg1: #f79bc1;
+      --bg2: #f5dca9;
+      --bg3: #a7c4e6;
+      --bg4: #dbc5fc;
+      --card: rgba(255, 255, 255, 0.18);
+      --card-border: rgba(255, 255, 255, 0.36);
+      --text: #fffdfd;
+      --shadow: rgba(90, 55, 68, 0.16);
+      --pink: #f472b6;
+      --purple: #a78bfa;
+      --gold: #fbbf24;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 20% 15%, rgba(255,255,255,0.42), transparent 18%),
+        radial-gradient(circle at 80% 25%, rgba(255,255,255,0.25), transparent 16%),
+        linear-gradient(135deg, var(--bg1), var(--bg2), var(--bg3), var(--bg4));
+      color: var(--text);
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .soft-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(25px);
+      opacity: 0.26;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .orb-1 {
+      width: 240px;
+      height: 240px;
+      background: rgba(255, 255, 255, 0.38);
+      top: 8%;
+      left: 6%;
+    }
+
+    .orb-2 {
+      width: 180px;
+      height: 180px;
+      background: rgba(255, 214, 102, 0.25);
+      bottom: 10%;
+      right: 12%;
+    }
+
+    .orb-3 {
+      width: 200px;
+      height: 200px;
+      background: rgba(165, 125, 255, 0.18);
+      top: 40%;
+      right: 18%;
+    }
+
+    .container {
+      width: min(980px, 92%);
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      padding: 34px 0 70px;
+    }
+
+    .hero {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 28px;
+      padding: 38px 24px 18px;
+      text-align: center;
+      box-shadow: 0 18px 40px var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cake {
+      font-size: clamp(3rem, 7vw, 5.6rem);
+      animation: bounce 1.8s infinite;
+      margin-bottom: 8px;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: scale(1) rotate(0deg); }
+      35% { transform: scale(1.12) rotate(-5deg); }
+      65% { transform: scale(1.08) rotate(4deg); }
+    }
+
+    .title {
+      margin: 0;
+      font-size: clamp(2.2rem, 5vw, 4.2rem);
+      line-height: 1.1;
+      font-weight: 800;
+      text-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+
+    .subtitle {
+      max-width: 720px;
+      margin: 18px auto 0;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      line-height: 1.85;
+      color: rgba(255,255,255,0.97);
+    }
+
+    .music-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+      padding: 12px 18px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 999px;
+      font-weight: 700;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    }
+
+    .section {
+      margin-top: 26px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 26px;
+      padding: 26px 22px;
+      box-shadow: 0 16px 34px rgba(62, 30, 54, 0.12);
+    }
+
+    .section h2 {
+      text-align: center;
+      margin: 0 0 16px;
+      font-size: clamp(1.7rem, 3vw, 2.6rem);
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(90px, 1fr));
+      gap: 16px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .time-box {
+      background: linear-gradient(135deg, rgba(255,255,255,0.16), rgba(255,255,255,0.05));
+      border: 1px solid rgba(255,255,255,0.32);
+      border-radius: 18px;
+      text-align: center;
+      padding: 16px 10px;
+      box-shadow: 0 10px 18px rgba(0,0,0,0.06);
+    }
+
+    .time-box .value {
+      margin: 0;
+      font-size: clamp(1.9rem, 3vw, 2.8rem);
+      font-weight: 800;
+    }
+
+    .time-box .label {
+      margin-top: 8px;
+      font-size: 0.74rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
+
+    .message {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+      line-height: 1.9;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.98);
+    }
+
+    .quote {
+      margin-top: 22px;
+      padding: 18px 18px;
+      background: rgba(255,255,255,0.08);
+      border-left: 4px solid rgba(255,255,255,0.8);
+      border-radius: 12px;
+      line-height: 1.8;
+      font-style: italic;
+      color: rgba(255,255,255,0.96);
+    }
+
+    .btn-row {
+      margin-top: 26px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 999px;
+      padding: 14px 22px;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      background: #fff;
+      color: #d65d89;
+      box-shadow: 0 12px 22px rgba(0,0,0,0.12);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 24px rgba(0,0,0,0.16);
+    }
+
+    .btn.secondary {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.38);
+    }
+
+    .wish-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 14px;
+    }
+
+    .wish {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.26);
+      border-radius: 16px;
+      padding: 18px 16px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.98);
+    }
+
+    .wish strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+
+    .sparkle {
+      position: fixed;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 2;
+      opacity: 0;
+      background: rgba(255,255,255,0.9);
+      box-shadow: 0 0 10px rgba(255,255,255,0.75);
+      animation: sparkleAnim 5s ease-in-out infinite;
+    }
+
+    @keyframes sparkleAnim {
+      0% {
+        transform: translateY(0) scale(0.8);
+        opacity: 0;
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100px) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .countdown {
+        grid-template-columns: repeat(2, minmax(110px, 1fr));
+      }
+
+      .section {
+        padding: 22px 14px;
+      }
+
+      .hero {
+        padding: 28px 16px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="soft-orb orb-1"></div>
+  <div class="soft-orb orb-2"></div>
+  <div class="soft-orb orb-3"></div>
+
+  <div class="container">
+    <section class="hero">
+      <div class="cake">🎂</div>
+      <h1 class="title">Selamat Ulang Tahun, Selvi Bedul!</h1>
+      <p class="subtitle">
+        Semoga hari ini jadi hari yang menyenangkan, penuh semangat, dan membawa banyak
+        kebahagiaan untukmu. Semoga di usia yang baru ini, kamu makin sehat, makin mandiri,
+        dan makin sukses dalam hal yang kamu jalani.
+      </p>
+
+      <div class="music-tag">🎵 Tulus - Teh Hijau</div>
+    </section>
+
+    <section class="section">
+      <h2>Umur 18 Tahun</h2>
+      <div class="countdown">
+        <div class="time-box">
+          <p class="value" id="years">0</p>
+          <div class="label">Tahun</div>
+        </div>
+        <div class="time-box">
+          <p class="value" id="months">0</p>
+          <div class="label">Bulan</div>
+        </div>
+        <div class="time-box">
+          <p class="value" id="days">0</p>
+          <div class="label">Hari</div>
+        </div>
+        <div class="time-box">
+          <p class="value" id="hours">0</p>
+          <div class="label">Jam</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="message">
+        Selamat bertambah usia, Selvi Bedul. Semoga hidupmu terus diberi kesehatan,
+        kelancaran, dan kebahagiaan dalam setiap langkah. Semoga semua rencana dan
+        harapanmu bisa berjalan dengan baik.
+      </p>
+
+      <div class="quote">
+        “Semoga tahun ini menjadi awal yang baik untuk langkahmu berikutnya, dengan
+        semangat yang makin kuat dan hati yang makin tenang.”
+      </div>
+
+      <div class="btn-row">
+        <button class="btn" id="musicBtn">🎵 Putar Musik</button>
+        <button class="btn secondary" id="sparkleBtn">✨ Efek Halus</button>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Doa & Harapan</h2>
+      <div class="wish-grid">
+        <div class="wish">
+          <strong>💖 Kesehatan</strong>
+          Semoga selalu diberi kesehatan, kekuatan, dan kebahagiaan di setiap langkah.
+        </div>
+        <div class="wish">
+          <strong>🌟 Kesuksesan</strong>
+          Semoga semua usaha dan rencana yang kamu jalani membawa hasil yang baik.
+        </div>
+        <div class="wish">
+          <strong>💫 Ketenangan</strong>
+          Semoga hati selalu tenang, lapang, dan siap menghadapi segala hal dengan baik.
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const yearsEl = document.getElementById("years");
+    const monthsEl = document.getElementById("months");
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+
+    const ageTarget = { years: 18, months: 0, days: 0, hours: 0 };
+
+    function animateAge() {
+      const current = { years: 0, months: 0, days: 0, hours: 0 };
+      const tick = () => {
+        if (current.years < ageTarget.years) {
+          current.years++;
+          yearsEl.textContent = current.years;
+          return;
+        }
+        if (current.months < ageTarget.months) {
+          current.months++;
+          monthsEl.textContent = current.months;
+          return;
+        }
+        if (current.days < ageTarget.days) {
+          current.days++;
+          daysEl.textContent = current.days;
+          return;
+        }
+        if (current.hours < ageTarget.hours) {
+          current.hours++;
+          hoursEl.textContent = current.hours;
+          return;
+        }
+        clearInterval(timer);
+      };
+
+      tick();
+      const timer = setInterval(tick, 100);
+    }
+
+    animateAge();
+
+    function createSparkles() {
+      for (let i = 0; i < 12; i++) {
+        const sparkle = document.createElement("div");
+        sparkle.className = "sparkle";
+        sparkle.style.left = Math.random() * 100 + "vw";
+        sparkle.style.top = Math.random() * 100 + "vh";
+        sparkle.style.animationDelay = (Math.random() * 2) + "s";
+        sparkle.style.animationDuration = (Math.random() * 3 + 4) + "s";
+        document.body.appendChild(sparkle);
+      }
+    }
+
+    document.getElementById("sparkleBtn").addEventListener("click", createSparkles);
+
+    const musicBtn = document.getElementById("musicBtn");
+    let audioContext = null;
+    let melodyTimer = null;
+    let melodyPlaying = false;
+    
+    const audio = new Audio("tulus-nala.mpeg");
+    audio.loop = true;
+
+    const notes = [
+      392, 392, 440, 392, 523, 494,
+      392, 392, 440, 392, 587, 523,
+      392, 392, 784, 659, 523, 494,
+      659, 659, 587, 523, 587, 523,
+
+      659, 587, 523, 494, 523, 587,
+      659, 587, 523, 494, 440, 392,
+      440, 494, 523, 587, 659, 587,
+      523, 494, 440, 392, 440, 523,
+
+      587, 659, 587, 523, 494, 440,
+      392, 392, 440, 392, 523, 494,
+      392, 392, 440, 392, 587, 523,
+      392, 392, 784, 659, 523, 494,
+
+      659, 659, 587, 523, 587, 523,
+      659, 587, 523, 494, 523, 587,
+      659, 587, 523, 494, 440, 392,
+      440, 494, 523, 587, 659, 587,
+      523, 494, 440, 392
+    ];
+
+    function playTone(freq, duration = 0.22, volume = 0.12) {
+      if (!audioContext) return;
+
+      const osc = audioContext.createOscillator();
+      const gain = audioContext.createGain();
+
+      osc.type = "triangle";
+      osc.frequency.value = freq;
+
+      gain.gain.setValueAtTime(0.0001, audioContext.currentTime);
+      gain.gain.exponentialRampToValueAtTime(volume, audioContext.currentTime + 0.025);
+      gain.gain.exponentialRampToValueAtTime(0.0001, audioContext.currentTime + duration);
+
+      osc.connect(gain);
+      gain.connect(audioContext.destination);
+
+      osc.start(audioContext.currentTime);
+      osc.stop(audioContext.currentTime + duration + 0.04);
+    }
+
+    function startMusic() {
+        audio.currentTime = 0;
+        audio.play();
+        melodyPlaying = true;
+        musicBtn.textContent = "⏸️ jeda Musik"; 
+    }
+
+    function stopMusic() {
+      audio.pause();
+      audio.currentTime = 0;
+      melodyPlaying = false;
+      clearTimeout(melodyTimer);
+      musicBtn.textContent = "🎵 Putar Musik";
+    }
+
+    musicBtn.addEventListener("click", () => {
+      if (melodyPlaying) {
+        stopMusic();
+      } else {
+        startMusic();
+      }
+    });
+
+    window.addEventListener("pointerdown", startMusic, { once: true });
+    window.addEventListener("touchstart", startMusic, { once: true });
+
+    setTimeout(() => {
+      try {
+        startMusic();
+      } catch (e) {
+        // ignore
+      }
+    }, 800);
+  </script>
+</body>
+</html>
